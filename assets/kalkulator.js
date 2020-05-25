@@ -1,9 +1,9 @@
-const calculator {
-    displayNumber: '0';
-    operator: null;
-    firtsNumber: null;
-    waitingForSecondNumber: false;
-}
+const calculator = {
+    displayNumber: '0',
+    operator: null,
+    firtsNumber: null,
+    waitingForSecondNumber: false
+};
 
 function updateDisplay() {
     document.querySelector("#displayNumber").innerText = calculator.displayNumber;
@@ -17,7 +17,11 @@ function clearCalculator() {
 }
 
 function inputDigit(digit) {
-    calculator.displayNumber += digit;
+    if (calculator.displayNumber === '0') {
+        calculator.displayNumber = digit;
+    } else {
+        calculator.displayNumber += digit;
+    }
 }
 
 const buttons = document.querySelectorAll(".button");
